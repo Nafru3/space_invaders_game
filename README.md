@@ -1,84 +1,85 @@
+# Earth Invader
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12808498&assignment_repo_type=AssignmentRepo)
 
-Bonjour,
-Merci d'avoir installé le jeu : Earth Invader.
-En espérant que celui-ci vous plaira !
-Ce jeu a été réalisé par Nathan et Raphaël étudiant en 3 ETI (Groupe C) à CPE Lyon.
-Pour lancer le jeu, il suffit d'exécuter le programme : PP.py
+## Introduction
+Welcome to **Earth Invader**! Thank you for installing our game—we hope you enjoy playing it!
 
-_____________________LES REGLES DU JEU_____________________
-    --- OBJECTIF ---
-    Détruire les envahisseurs (tanks ennemis): 
-    Le joueur contrôle un tank situé en bas de l'écran et doit éliminer tous les envahisseurs qui descendent vers lui 
-    (et bien sur éviter les balles).
+This game was developed by **Nathan and Raphaël**, students in **3 ETI (Group C) at CPE Lyon**.
+To launch the game, simply run the file: `PP.py`.
 
-    --- GAMEPLAY ---
-    Déplacements du héro (tank) : 
-    Le joueur peut se déplacer horizontalement (gauche et droite) en bas de l'écran pour éviter les tirs ennemis et tirer sur les tanks adverses.
-    Il peut soit utiliser les touches du clavier (left,right et space), soit une manette.
+## Game Rules
 
-    --- TANKS ENNEMIS ---
-    Il existe 2 types de tanks ennemis : les "normaux" et les "Supers Tanks".
-    Les "normaux" possèdent 1 vie et tirent une balle normale qui enlève 1 vie et rapportent 10 points de scores.
-    Les "Supers Tanks" possèdent 2 vie et tirent une super balle qui enlève 2 vie et rapportent 15 points de scores.
+### Objective
+Destroy the invaders (enemy tanks):
+The player controls a tank at the bottom of the screen and must eliminate all invading tanks descending toward them while avoiding enemy bullets.
 
-    --- BARRIERES PROTECTRICES ---
-    Le joueur peut se rejugier derrières les barrières, pour éviter les feux ennemis.
-    Cependant si les ennemis atteignent les barrières, elles disparaissent.
+### Gameplay
+- **Player movement:** The player can move horizontally (left and right) at the bottom of the screen to evade enemy fire and shoot at enemy tanks.
+- **Controls:** The player can use either the keyboard (Left, Right, and Space keys) or a game controller.
 
-    --- TRAIN ---
-    Tchou ! Tchou ! En effet, un train circule en haut de l'écran.
-    Si le joueur arrive à le toucher : le tank héro gagne soit une vie et 20 points de scores.
+### Enemy Tanks
+There are two types of enemy tanks:
+- **Normal Tanks**: 1 HP, fire normal bullets (-1 HP to the player), and reward 10 points upon destruction.
+- **Super Tanks**: 2 HP, fire super bullets (-2 HP to the player), and reward 15 points upon destruction.
 
-    --- MECANIQUES DU JEU ---
-    --> VIE : Le joueur dispose initialement de 3 vies. La partie se termine, lorsqu'il pert toutes ses vies.
-    --> SCORE : 
-        Le joueur gagne s'il touche avec un missile un :
-        - tank normal : 10 points
-        - Super Tank : 15 points (à sa destruction)
-        - Train : 20 points
+### Protective Barriers
+- The player can take cover behind protective barriers to avoid enemy fire.
+- If enemies reach the barriers, they will disappear.
 
-    --- DIFFICULTES CROISSANTES ---
-    --> A chaques vagues d'ennemis, il y a de plus en plus de super Tank, la cadence de tir des tanks est améliorées et il y a plus de tanks qui tirent.
+### Train Mechanic
+- A train occasionally moves across the top of the screen.
+- Shooting the train grants **+1 life** and **+20 points**.
 
-    --- Ajout de certaines fonctionnalités :
-    - les codes de triches
-    raze ==> permet d'avoir des supers munitions 
-    stormtrooper ==> permet d'avoir les munitions de base
-    tropsimple ==> permet d'avoir qu'un seul ennemi qui tire
-    champignon1up ==> permet d'avoir 7 vies bonus
-    tricheur ==> permet de commencer la partie avec 1000 points de score
-    bonnechance ==> tous les tanks tirent des missiles normaux
-    impossible ==> tous les tanks tirent des supers missiles
-    modeenfant ==> le joueur ne prend pas de dégat par balle
-    ragequit ==> le jeu se ferme
-    iliketrains ==> il y a plus de trains qui passent
+### Game Mechanics
+- **Lives**: The player starts with 3 lives. The game ends when all lives are lost.
+- **Scoring:**
+  - Destroying a Normal Tank: +10 points
+  - Destroying a Super Tank: +15 points
+  - Hitting the train: +20 points
 
+### Increasing Difficulty
+With each new wave of enemies:
+- More **Super Tanks** appear.
+- Enemy fire rate increases.
+- More tanks are capable of shooting.
 
+## Cheat Codes
+The following cheat codes can be used in the game:
+- `raze` → Grants super ammunition.
+- `stormtrooper` → Resets to basic ammunition.
+- `tropsimple` → Only one enemy tank shoots.
+- `champignon1up` → Grants 7 bonus lives.
+- `tricheur` → Starts the game with 1000 points.
+- `bonnechance` → All tanks fire normal missiles.
+- `impossible` → All tanks fire super missiles.
+- `modeenfant` → The player takes no bullet damage.
+- `ragequit` → Closes the game.
+- `iliketrains` → More trains appear.
 
-Implémentation des outils : liste, file et pile :
-- LISTE :
-La liste est la variable qui contient les images des boucliers, elle est représentée (dans le fichier "Jeu.py" (pour la "class Jeu", méthode "DebutJeu")) par : self.bouclierCanvas.
-Nous avons utiliser une liste car nous devons avoir accès à nimporte quel des éléments de la liste quand le bouclier est touché par un missile.
-Le principe est de pouvoir changer nimporte quel éléments de cette liste, de le supprimer ou encore d'en rajouter d'autres .
-- FILE :
-La file est le chargeur de munition du joueur, elle est représentée (dans le fichier "Jeu.py" (pour la "class Jeu", méthode "Recommencer")) par : self.munition = [0,0,0,0,1]
-Nous faisons les opérations sur la file dans la class Hero(fichier "Hero.py") avec notre méthode "gestionTir".
-Le principe est d'enlèver le premier élément de la liste puis de le rajouter à la fin de celle-ci.
+## Implementation of Data Structures
 
-- PILE :
-la pile est la vie du joueur, elle est représentée (dans le fichier "Jeu.py" (pour la "class Jeu", méthode "Recommencer")) par : self.vie = [1,1,1]
-Nous faisons les opérations sur la pile dans la class Hero (fichier "Hero.py") avec notre méthode "changementVie".
-Le principe est d'ajouter un 1 à la fin de la liste pour rajouter une vie en plus, ou d'enlever un 1 à la fin de la liste pour enléver une vie.
+### **List (Array)**
+- **Usage**: Stores shield images.
+- **Implementation**: `self.bouclierCanvas` in `Jeu.py` (Class `Jeu`, method `DebutJeu`).
+- **Reason**: The list allows access to any shield element when it is hit by a missile, enabling modifications, additions, and removals.
 
+### **Queue (FIFO)**
+- **Usage**: Represents the player’s ammunition loader.
+- **Implementation**: `self.munition = [0,0,0,0,1]` in `Jeu.py` (Class `Jeu`, method `Recommencer`).
+- **Operations**: Managed in `Hero.py` (Class `Hero`, method `gestionTir`).
+  - The first element is removed and added to the end of the queue.
 
- L’adresse de notre répertoire GIT
-https://github.com/cpe-lyon/groupe-c-berger-frume-csdev-spaceinvaders
+### **Stack (LIFO)**
+- **Usage**: Represents the player's lives.
+- **Implementation**: `self.vie = [1,1,1]` in `Jeu.py` (Class `Jeu`, method `Recommencer`).
+- **Operations**: Managed in `Hero.py` (Class `Hero`, method `changementVie`).
+  - A `1` is added to gain a life, and a `1` is removed to lose a life.
+ 
+## Credits
+- **Quentin FRUME**: Design and artwork.
+- **Quentin FRUME**: Music composition.
+- **Thibaud DAUBIGNEY**: Various game mechanics, including ammunition system.
+- **Olivier MERMET**: Idea for player teleportation at screen edges.
 
-
-
-Remerciment  :
-- à notre designer Quentin FRUME pour toutes ces magnifiques images.
-- à notre compositeur Quentin FRUME pour cette magnifique musique.
-- aux nombreuses idées de Thibaud DAUBIGNEY (Notamment pour les munitions)
-- à Olivier MERMET pour l'idée du déplacement du joueur qui permet de se téléporter aux bords de l'écran 
+Thank you for playing Earth Invader! We hope you enjoy the experience!
